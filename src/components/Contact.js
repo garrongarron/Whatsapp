@@ -1,9 +1,10 @@
 import React, { Component } from 'react'
 
 export default class Contact extends Component {
+
     render() {
         return (
-            <div className="who">
+            <div className={(this.props.isSelected)?"who selected":"who"} onClick={this.props.selectUser}>
                 <div className="img"></div>
                 <div className="main">
                     <div className="name">

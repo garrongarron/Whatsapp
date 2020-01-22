@@ -1,23 +1,13 @@
 import React, { Component } from 'react'
-import Message from './Message'
-import { Socket } from "../socket/Socket";
+// import Message from './Message'
+// import { Socket } from "../socket/Socket";
 import { ThemeContext } from '../contexts/ThemeContext';
 
 
 export default class Messages extends Component {
 
     static contextType = ThemeContext;
-
-    constructor(props) {
-        super(props);
-        this.myArr = [];
-
-        this.state = {
-            value: '',
-            list: [],
-        };
-    }
-    class = [
+    examples = [
         ['msg-left', '', '', 'content-left'],
         ['msg-left-0', 'he-she', '', 'content-left'],
 
@@ -31,21 +21,21 @@ export default class Messages extends Component {
 
     }
     componentDidMount() {
-        let state = (text) => {
-            this.context.sendMessage(
-            <Message type={['msg-left-0', 'he-she', '', text]} 
-            key={new Date().getTime()} />)
-        }
-        let who = (username) => {
-            this.context.addFriend(username)
-        }
-        Socket.getSocket().then((socket) => {
-            socket.emit('add user', 'Federico');
-            socket.on('new message', function (data) {
-                state(data.message);
-                who(data.username);
-            });
-        })
+        // let state = (text) => {
+        //     this.context.sendMessage(
+        //     <Message type={['msg-left-0', 'he-she', '', text]} 
+        //     key={new Date().getTime()} />)
+        // }
+        // let who = (username) => {
+        //     this.context.addFriend(username)
+        // }
+        // Socket.getSocket().then((socket) => {
+        //     socket.emit('add user', 'Federico');
+        //     socket.on('new message', function (data) {
+        //         state(data.message);
+        //         who(data.username);
+        //     });
+        // })
     }
 
 
@@ -53,7 +43,7 @@ export default class Messages extends Component {
     render() {
         return (
             <ul className="msgs">
-                {this.context.messages}
+                {this.context.messagesStorage.get(this.context.userSelected)}
             </ul>
         )
     }

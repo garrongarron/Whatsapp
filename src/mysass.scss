@@ -66,11 +66,19 @@ body{
         @media (max-width: 768px){
           height: calc(100vh - 3.2rem);
         }
+        .selected{
+          background-color: #eefaff!important;
+        }
         .who{
           background-color: #e0e0e0;
           width: 100%;
           display: flex;
           align-items: center;
+          cursor: pointer;
+          &:hover{
+            background-color: #eeeeee;
+          }
+          
           .img{
             margin: 0 1rem;
             width: 2rem;

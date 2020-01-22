@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { Socket } from "../socket/Socket";
 import { ThemeContext } from '../contexts/ThemeContext';
-import Message from './Message'
 
 export default class Form extends Component {
 
@@ -38,7 +37,7 @@ export default class Form extends Component {
                         onChange={this.handleChange} />
                 </div>
                 <button onClick={()=>{
-                    sendMessage(<Message type={['msg-right-0', '', 'myself', this.state.value]} key={new Date().getTime()} />)
+                    sendMessage({username:this.context.userSelected,message:this.state.value},'sending')
                     this.send()
                 }}><i className="material-icons">send</i></button>
             </div>

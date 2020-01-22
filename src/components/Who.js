@@ -14,8 +14,8 @@ export default class Who extends Component {
                 <Menu/>
                 <div className="img"></div>
                 <div className="main">
-                    <div className="name">Jhon  Doe {(this.context.var1) ? 'ok' : 'no'}</div>
-                    <div className="status">Online !</div>
+                    <div className="name">{this.context.userSelected} {(this.context.showMenu) ? 'ok' : 'no'}</div>
+                    <div className="status">{(this.context.isTyping)?'Typing...':'On line'}</div>
                 </div>
             </div>
         )

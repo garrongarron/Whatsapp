@@ -4,6 +4,7 @@ import Messages from './Messages'
 import Form from './Form';
 import Search from './Search';
 import Contacts from './Contacts';
+import Receiver from '../socket/Receiver';
 import { ThemeContext } from '../contexts/ThemeContext';
 
 
@@ -17,11 +18,13 @@ export default class Container extends Component {
 
     render() {
         const { switcher } = this.context;
+        
         return (
             <div>
+                <Receiver/>
                 <div className="container" >
 
-                    <div className={(this.context.var1)?'side':'side-mobile'}>
+                    <div className={(this.context.showMenu)?'side':'side-mobile'}>
                         <Search />
                         <Contacts />
                     </div>
@@ -31,7 +34,7 @@ export default class Container extends Component {
                         <Form />
                     </div>
                 </div>
-                <div className={(this.context.var1)?'black':''} onClick={switcher}></div>
+                <div className={(this.context.showMenu)?'black':''} onClick={switcher}></div>
             </div>
         )
     }
