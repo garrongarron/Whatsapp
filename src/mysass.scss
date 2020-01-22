@@ -1,0 +1,369 @@
+$myColor: red;
+
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-size: 15px;
+}
+ul{
+  list-style-type:none;
+}
+.center{
+  background-color: darkgrey;
+  border-radius: 15px;
+  padding: .5rem;
+  font-size: .8rem;
+}
+body{
+  background-color: #cccccc;
+  font-family: 'Open+Sans', 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  position: relative;
+  .container{
+    background-color: white;
+    margin: 1rem auto;
+    display: flex;
+    // height: calc(100vh - 2rem);;
+    width: 80vw;
+    @media (max-width: 768px){
+      width: 100vw;
+      
+      margin: 0;
+      padding: 0;
+    }
+    
+    
+    .side, .side-mobile{
+      height: calc(100vh - 2rem);
+      background-color: white;
+      width: 300px;
+      max-width: 70%;
+      .search{
+        height: 3.2rem;
+        background-color: #red;
+        width: 100%;
+        padding: .5rem 1rem;
+        position: relative;
+        i{
+          position: absolute;
+          top: .7rem;
+          left: 1.2rem;
+          color: #cccccc;
+        }
+        input{
+          width: 100%;
+          border-radius: 5px;
+            border: 1px solid #cccccc;
+            padding-left: 2rem;
+            height: 2rem;
+        }
+      }
+      .contacts{
+        height: calc(100vh - 5.2rem);
+        background-color: #aaaaaa;
+        width: 100%;
+        // height: 100vh;
+        @media (max-width: 768px){
+          height: calc(100vh - 3.2rem);
+        }
+        .who{
+          background-color: #e0e0e0;
+          width: 100%;
+          display: flex;
+          align-items: center;
+          .img{
+            margin: 0 1rem;
+            width: 2rem;
+            height: 2rem;
+            border-radius: 50%;
+            background-color: blue;
+            background-image: url('https://pixinvent.com/demo/convex-bootstrap-admin-dashboard-template/app-assets/img/portrait/small/avatar-s-8.jpg');
+            background-size: contain;
+            background-repeat: no-repeat;
+            box-sizing: border-box;
+          }
+          .main{
+            flex: 1;
+            display: flex;
+            flex-flow: column;
+            padding: .5rem 0;
+            .name{
+              width: 100%;
+              display: flex;
+              justify-content: space-between;
+              font-weight: bold;
+              div{
+                color:gray;
+                padding: .2rem .5rem;
+              }
+              .last{
+                font-size: .7rem;
+                color: #1E9FF2;
+              }
+            }
+            .status{
+              
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+              div{
+                color:gray;
+                padding: .2rem .5rem;
+                font-size: .9rem;;
+              }
+              i{
+                font-size: .9rem;
+                // color: #666666;
+                color: #1E9FF2 !important;
+              }
+              .checked{
+                font-size: .9rem;
+                color: #1E9FF2 !important;
+              }
+              .unread{
+                font-size: .7rem;
+                color:white;
+                background-color: #1E9FF2;
+                border-radius: .5rem;
+                margin-right: .5rem;
+                padding: .1rem .2rem;
+                height: 1rem;;
+              }
+            }
+          }
+        }
+      }
+    }
+    .side{
+      @media (max-width: 768px){
+        // display: none !important;
+        position: absolute;
+        height: 100vh;
+        z-index: 10;
+        
+      }
+    }
+    .side-mobile{
+      @media (max-width: 768px){
+        display: none !important;
+        position: absolute;  
+        z-index: 10;
+      }
+    }
+    
+    .chat{
+      height: calc(100vh - 2rem);
+      background-color: white;
+      
+
+      display: flex;
+      flex-flow: column;
+      width: calc(100% - 300px);
+      @media (max-width: 768px){
+        width: 100%;
+        height:100vh;
+      }
+      .who{
+        background-color: #e0e0e0;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        .img{
+          margin: 0 .5rem 0 0;
+          @media (min-width: 768px){
+            margin: 0 .5rem;
+          }
+          width: 2rem;
+          height: 2rem;
+          border-radius: 50%;
+          background-color: blue;
+          background-image: url('https://pixinvent.com/demo/convex-bootstrap-admin-dashboard-template/app-assets/img/portrait/small/avatar-s-8.jpg');
+          background-size: contain;
+        }
+        .menu{
+          margin: 0 1rem;
+          display: block;
+          @media (min-width: 768px){
+              // display: none !important;
+          }
+        }
+        .main{
+          display: flex;
+          flex-flow: column;
+          .name{
+            color: blue;
+            margin-top: .6rem;
+            height: 1rem;
+          }
+          .status{
+            height: 1rem;
+            font-size: .8rem;
+            margin-Bottom: .6rem;
+            color: rgb(4, 189, 4);
+          }
+        }
+      }
+      .msgs{
+        height: 100%;
+        
+        background-color: #cfcfcf;
+        background-image: url("https://pixinvent.com/demo/convex-bootstrap-admin-dashboard-template/app-assets/img/pages/sativa.png");
+        width: 100%;
+        overflow-y: scroll;
+
+        
+        .msg{
+          display: grid;
+          grid-template-columns: 4rem calc(100% - 10rem) 4rem;
+          grid-gap: 1rem;
+          padding-top: 1rem;
+          position: relative;
+          
+          .he-she, .myself{
+            background-color: indigo;
+            height: 2.5rem;
+            width: 2.5rem;
+            border-radius: 50%;
+            margin: 0 auto;
+          }
+          .myself{
+            background-image: url('https://pixinvent.com/demo/convex-bootstrap-admin-dashboard-template/app-assets/img/portrait/small/avatar-s-1.jpg');
+            background-size: contain;
+          }
+          .he-she{
+            background-image: url('https://pixinvent.com/demo/convex-bootstrap-admin-dashboard-template/app-assets/img/portrait/small/avatar-s-8.jpg');
+            background-size: contain;
+          }
+          .text{
+            text-align: left;
+            background-color: #F4F5FA; 
+            display: inline-block;
+            padding: 8px;
+            right: 0;
+            border-radius: 5px;
+            z-index: -1;
+            .time{
+              width: 100%;
+              text-align: right;
+              font-size: .7rem;
+              color: #666666;
+            }
+          }
+          .msg-left{
+            text-align: left;
+          }
+          .msg-left-0{
+            text-align: left;
+            .text::before {
+              content: "";
+              position: absolute;
+              width: 0; 
+              height: 0; 
+              border-top: 10px solid transparent;
+              border-bottom: 10px solid transparent;
+              border-right: 10px solid #F4F5FA;
+              left: 4.5rem;
+            }
+          }
+          .msg-center{
+            text-align: center;
+            .text{
+              background-color:#333333;
+              color: white;
+              padding: 4px;
+              .time{
+                display: none;
+              }
+            }
+          }
+          .msg-right{
+            text-align: right;
+            .text{
+              background-color: #1E9FF2;
+              color: white;
+            }
+          }
+          .msg-right-0{
+            text-align: right;
+            color: white;
+            .text{
+              background-color: #1E9FF2;
+            }
+            .text::before {
+              content: "";
+              position: absolute;
+              width: 0; 
+              height: 0; 
+              border-top: 10px solid transparent;
+              border-bottom: 10px solid transparent;
+              border-left: 10px solid #1E9FF2;
+              right: 4.5rem;
+            }
+          }
+        }
+      }
+      .form{
+        height: 3rem;
+        background-color: white;
+        
+        padding: .5rem 1.5rem;
+        box-sizing: border-box;
+        display: flex;
+        position: relative;
+        div{
+          flex: 8;
+          margin-right: 1.5rem;
+          i{
+            position: absolute;
+            top: 1rem;
+            left: 2rem;
+            float: left;
+            color: gray;
+            opacity: .5; 
+            font-size: 1.2rem;
+          }
+          input[type=text]{
+            border-radius: 5px;
+            border: 1px solid #cccccc;
+            margin-right: .5rem;
+            padding-left: 2rem;
+            height: 2rem;
+            width: 100%;
+            color: gray;
+            &::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+              color: gray;
+              opacity: .5; /* Firefox */
+            }
+            
+          }
+        }
+        button{
+          border: none;
+          flex: 1;
+          border-radius: 10px;
+          height: 2rem;
+          background-color: #1E9FF2;
+          color: white;
+          text-align: center;
+          i{
+            font-size: 1rem;
+          }
+        }
+      }
+    }
+  }
+  .black{
+    content: "fede";
+    background-color: black;
+    width: 100%;
+    display: block;
+    position: absolute;
+    top: 0;
+    height:100vh;
+    opacity: .6;
+    z-index: 1;
+    @media (min-width: 768px){
+      display: none !important;
+    }
+  }
+}
