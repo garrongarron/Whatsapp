@@ -11,11 +11,15 @@ export default class Form extends Component {
         this.state = { value: '' };
         this.handleChange = this.handleChange.bind(this)
         this.send = this.send.bind(this);
+        this.firstInput = null;
+        
     }
     componentDidMount(){
         Socket.getSocket().then((socket) => {
             this.socket = socket;
         })
+        
+        this.context.setInputSender(this.firstInput);
     }
 
     handleChange(event) {
@@ -27,16 +31,22 @@ export default class Form extends Component {
     }
     render() {
         const { sendMessage } = this.context;
+        
         return (
             
             <div className="form">
                 <div>
                     <i className="material-icons">favorite</i>
-                    <input type="text" placeholder="Type your message"
+                    <input 
+                        ref={elem => (this.firstInput = elem)}
+                        type="text" 
+                        placeholder="Type your message"
                         value={this.state.value}
                         onChange={this.handleChange} />
                 </div>
-                <button onClick={()=>{
+                <button 
+                    
+                    onClick={()=>{
                     sendMessage({username:this.context.userSelected,message:this.state.value},'sending')
                     this.send()
                 }}><i className="material-icons">send</i></button>

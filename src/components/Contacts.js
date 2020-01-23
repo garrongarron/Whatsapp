@@ -12,13 +12,19 @@ export default class Contacts extends Component {
     componentDidMount() { }
 
     render() {
+        const { switcher } = this.context;
         return (
             <div className="contacts">
                 {this.context.contacts.map(name =>
                     <Contact 
                         isSelected={(name === this.context.userSelected)} 
                         name={name} 
-                        selectUser={()=>{this.context.selectUser(name)}} />
+                        selectUser={()=>{
+                            this.context.selectUser(name);
+                            switcher()
+                        }} 
+                        key={name}
+                        last={this.context.getLast(name)} />
                 )}
             </div>
         )
