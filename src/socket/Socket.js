@@ -4,7 +4,7 @@ class SocketClass {
     promise = false;
 
     constructor() {
-        let socket = io('http://localhost:5000');
+        let socket = io('http://192.168.18.19:5000/');
 
         this.promise = new Promise((resolver, rechazar) => {
             socket.on('connect', function () {

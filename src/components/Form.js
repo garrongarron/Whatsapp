@@ -49,6 +49,7 @@ export default class Form extends Component {
                     onClick={()=>{
                     sendMessage({username:this.context.userSelected,message:this.state.value},'sending')
                     this.send()
+                    this.context.inputSend.focus()
                 }}><i className="material-icons">send</i></button>
             </div>
         )

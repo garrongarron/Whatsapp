@@ -16,7 +16,7 @@ export default class MessageFormat extends Component {
                 <div className="text">
                     {this.props.type[3]}
                     <br/>
-                    <div className="time">{(this.props.type[4].getHours()<10)?'0':''+this.props.type[4].getHours() +': '   +((this.props.type[4].getMinutes() <10)?'0':'')+ this.props.type[4].getMinutes() }</div>
+                    <div className="time">{((this.props.type[4].getHours()<10)?'0':'')+this.props.type[4].getHours() +':'+((this.props.type[4].getMinutes() <10)?'0':'')+ this.props.type[4].getMinutes() }</div>
                 </div>
             </div>
         )

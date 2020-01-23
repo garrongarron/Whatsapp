@@ -18,7 +18,9 @@ class ThemeContextProvider extends Component {
     }
     switcher = () => {
         this.setState({ showMenu: !this.state.showMenu });
-        this.state.inputSend.focus();
+        if(this.state.showMenu){
+            this.state.inputSend.focus();
+        }
     }
 
     sendMessage = (data, mode) => {
