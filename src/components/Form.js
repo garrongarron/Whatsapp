@@ -44,8 +44,7 @@ export default class Form extends Component {
                         value={this.state.value}
                         onChange={this.handleChange} />
                 </div>
-                <button 
-                    
+                <button className="button"
                     onClick={()=>{
                     sendMessage({username:this.context.userSelected,message:this.state.value},'sending')
                     this.send()

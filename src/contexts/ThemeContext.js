@@ -8,7 +8,7 @@ class ThemeContextProvider extends Component {
     state = {
         showMenu: false,
         messages: [],
-        userSelected: 'No user Selected',
+        userSelected: 'Buddy',
         friends: new Map(),
         messagesStorage: new Map(),
         lastMsg: new Map(),

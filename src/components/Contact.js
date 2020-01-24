@@ -9,8 +9,11 @@ export default class Contact extends Component {
                 <div className="main">
                     <div className="name">
                         <div>{this.props.name}</div>
-                        <div className="last">{((this.props.last.date.getHours()<10)?'0':'')+this.props.last.date.getHours()+':'+
-        ((this.props.last.date.getMinutes()<10)?'0':'')+this.props.last.date.getMinutes() }</div>
+                        <div className="last">{(
+                                (this.props.last.date.getHours()<10)?'0':'')
+                                +this.props.last.date.getHours()+':'+
+                                ((this.props.last.date.getMinutes()<10)?'0':'')+
+                                this.props.last.date.getMinutes() }</div>
                     </div>
                     <div className="status">
                         <div>

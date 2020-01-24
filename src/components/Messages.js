@@ -6,6 +6,10 @@ import { ThemeContext } from '../contexts/ThemeContext';
 
 export default class Messages extends Component {
 
+    constructor(props) {
+        super(props);
+        this.toScroll = null;
+    }
     static contextType = ThemeContext;
     examples = [
         ['msg-left', '', '', 'content-left'],
@@ -18,31 +22,17 @@ export default class Messages extends Component {
     ];
 
     componentDidUpdate() {
-
+        this.toScroll.scrollTop = this.toScroll.scrollHeight
     }
     componentDidMount() {
-        // let state = (text) => {
-        //     this.context.sendMessage(
-        //     <Message type={['msg-left-0', 'he-she', '', text]} 
-        //     key={new Date().getTime()} />)
-        // }
-        // let who = (username) => {
-        //     this.context.addFriend(username)
-        // }
-        // Socket.getSocket().then((socket) => {
-        //     socket.emit('add user', 'Federico');
-        //     socket.on('new message', function (data) {
-        //         state(data.message);
-        //         who(data.username);
-        //     });
-        // })
+  
     }
 
 
 
     render() {
         return (
-            <ul className="msgs">
+            <ul className="msgs" ref={elem => (this.toScroll = elem)}>
                 {this.context.messagesStorage.get(this.context.userSelected)}
             </ul>
         )

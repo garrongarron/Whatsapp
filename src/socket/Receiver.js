@@ -17,7 +17,7 @@ export default class Receiver extends Component {
             this.context.setIsTyping(boolean, data)
         }
         Socket.getSocket().then((socket) => {
-            socket.emit('add user', 'Federico');
+            socket.emit('add user', this.props.name);
             socket.on('new message', function (data) {
                 processMessage(data);
                 who(data.username);
