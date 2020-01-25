@@ -27,7 +27,7 @@ export default class Login extends Component {
                 <p>Wellcome</p>
                 <span>This is a public chat. Whatever you write here is seen by other people. You can have fun but it is dangerous for your privacy. Do not share personal information.</span>
                 <img src={Logo} alt="Login" width="20%" />
-                <span>Your message will be sent to everyone.</span>
+                <span>Your messages will be sent to everyone.</span>
                 <input  placeholder="Type your nick name" 
                         ref={elem => (this.itSelf = elem)}
                         value={this.state.name}

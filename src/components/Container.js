@@ -34,21 +34,23 @@ export default class Container extends Component {
         
         return (
             <div>
-                {this.state.isLogged?<Receiver name={this.state.name}/>:<Login login={this.login}/>}
+                {!this.state.isLogged?<Login login={this.login}/>:<div>
+                    <Receiver name={this.state.name}/>
+                    <div className="container" >
+    
+                        <div className={(this.context.showMenu)?'side':'side-mobile'}>
+                            <Search value={this.state.toSearch} search={this.callbackFunction}/>
+                            <Contacts toSearch={this.state.toSearch} />
+                        </div>
+                        <div className="chat">
+                            <Who />
+                            <Messages />
+                            <Form />
+                        </div>
+                    </div>
+                    <div className={(this.context.showMenu)?'black':''} onClick={switcher}></div>
+                </div>}
                 
-                <div className="container" >
-
-                    <div className={(this.context.showMenu)?'side':'side-mobile'}>
-                        <Search value={this.state.toSearch} search={this.callbackFunction}/>
-                        <Contacts toSearch={this.state.toSearch} />
-                    </div>
-                    <div className="chat">
-                        <Who />
-                        <Messages />
-                        <Form />
-                    </div>
-                </div>
-                <div className={(this.context.showMenu)?'black':''} onClick={switcher}></div>
             </div>
         )
     }

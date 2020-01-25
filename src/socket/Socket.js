@@ -4,23 +4,25 @@ class SocketClass {
     promise = false;
 
     constructor() {
+        // let socket = io('https://aucklandcomputerscience-test.herokuapp.com/');
+        // let socket = io('https://socketio-chat-example.now.sh/');
         let socket = io('https://aucklandcomputerscience-test.herokuapp.com/');
-
+        
         this.promise = new Promise((resolver, rechazar) => {
-            socket.on('connect', function () {
+            socket.on('connect', function() {
                 if (socket.connected) {
                     resolver(socket);
                 } else {
                     rechazar(':(')
                 }
             });
-            
+
         });
 
 
 
 
-        
+
 
     }
 
@@ -61,4 +63,3 @@ export const Socket = new SocketClass();
 // socket.on('typing', function (data) {
 //     console.log('0011', 'typing', data)
 // });
-
