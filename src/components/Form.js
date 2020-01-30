@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Socket } from "../socket/Socket";
 import { ThemeContext } from '../contexts/ThemeContext';
-
+import Send from '../icon1.png'
 export default class Form extends Component {
 
     static contextType = ThemeContext;
@@ -49,7 +49,10 @@ export default class Form extends Component {
                     sendMessage({username:this.context.userSelected,message:this.state.value},'sending')
                     this.send()
                     this.context.inputSend.focus()
-                }}><i className="material-icons">send</i></button>
+                }}>
+                    {/* <i className="material-icons">send</i> */}
+                <img src={Send} alt="Send" width="100%" />
+                </button>
             </div>
         )
     }
